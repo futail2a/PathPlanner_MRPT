@@ -68,7 +68,7 @@ void PathPlannerSVC_impl::OGMapToCOccupancyGridMap(RTC::OGMap ogmap, COccupancyG
 				gridmap->setCell(j, i, 1.0);
 			}
 			else{
-				gridmap->setCell(i, j, 0.5);
+				gridmap->setCell(j, i, 0.5);
 			}
 		}
 	}
