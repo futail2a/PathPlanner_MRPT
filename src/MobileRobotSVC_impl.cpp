@@ -102,7 +102,7 @@ RTC::RETURN_VALUE PathPlannerSVC_impl::planPath(const RTC::PathPlanParameter& pa
 		cout <<endl;
 		outPath = new RTC::Path2D();
 		
-		result = RETVAL_INVALID_PARAMETER;
+		result = RETVAL_NOT_FOUND;
 	}
 
 	//deque <TPoint2D>  -> Path2D_out
