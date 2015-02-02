@@ -115,6 +115,8 @@ RTC::RETURN_VALUE PathPlannerSVC_impl::planPath(const RTC::PathPlanParameter& pa
 		for(int i = 0;i < tPath.size(); i++) {
 			outPath->waypoints[i].target.position.x = tPath[i].x ;
 			outPath->waypoints[i].target.position.y = tPath[i].y ;
+			outPath->waypoints[i].distanceTolerance = param.distanceTolerance;
+			outPath->waypoints[i].distanceTolerance = param.headingTolerance;
 		}
 		std::cout << "  Path length:"<< outPath->waypoints.length() << endl;
 		cout <<endl;
