@@ -87,6 +87,20 @@ RTC::RETURN_VALUE PathPlannerSVC_impl::planPath(const RTC::PathPlanParameter& pa
 	//OGMap -> COccupancyGridMap2D
 	COccupancyGridMap2D gridmap;
 	OGMapToCOccupancyGridMap(param.map, &gridmap);
+	if(getStart().x() < gridmap.getXMin() || getStart().x() > gridmap.getXMax()){
+		result = RETVAL_INVALID_PARAMETER;
+		return result;
+	}else if(getStart().y() < gridmap.getYMin() || getStart().y() > gridmap.getYMax()){
+		result = RETVAL_INVALID_PARAMETER;
+		return result;
+	}
+	if(getGoal().x() < gridmap.getXMin() || getGoal().x() > gridmap.getXMax()){
+		result = RETVAL_INVALID_PARAMETER;
+		return result;
+	}else if(getGoal().y() < gridmap.getYMin() || getGoal().y() > gridmap.getYMax()){
+		result = RETVAL_INVALID_PARAMETER;
+		return result;
+	}
 			
 	//Plan path
 	CPathPlanningCircularRobot pathPlanning;
